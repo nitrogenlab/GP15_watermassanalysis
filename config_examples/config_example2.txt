@@ -14,20 +14,28 @@ remineralized = false
 weight = 3.0
 remineralized = false
 
-[params.nitrate]
-weight = 5.0
-remineralized = true
-ratios = [0.10330578512, 0.10330578512]
-
-[params.phosphate]
-weight = 5.0
-remineralized = true
-ratios = [0.01036168132, 0.00327210989]
-
-[params.oxygen]
+[params.NO]
 weight = 1.0
-remineralized = true
-ratios = [-1, -1]
+remineralized = false
+
+[params.PO]
+weight = 1.0
+remineralized = false
+
+#[params.nitrate]
+#weight = 5.0
+#remineralized = true
+#ratios = [0.10330578512, 0.10330578512]
+#
+#[params.phosphate]
+#weight = 5.0
+#remineralized = true
+#ratios = [0.01036168132, 0.00327210989]
+#
+#[params.oxygen]
+#weight = 1.0
+#remineralized = true
+#ratios = [-1, -1]
 
 [endmembers]
 csv_file = "endmember_df_intermediateanddeep.csv"
