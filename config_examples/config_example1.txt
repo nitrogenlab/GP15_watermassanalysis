@@ -1,0 +1,59 @@
+[observations]
+csv_file = "gp15_intermediateanddeep_obs.csv"
+na_values = -999
+
+[params]
+	[params.potential_temp]
+	weight = 56.0
+	remineralized = false
+
+	[params.practical_salinity]
+	weight = 80.0
+	remineralized = false
+
+	[params.silicate]
+	weight = 3.0
+	remineralized = false
+
+	[params.nitrate]
+	weight = 5.0
+	remineralized = true
+	ratios = [0.10330578512, 0.10330578512]
+
+	[params.phosphate]
+	weight = 5.0
+	remineralized = true
+	ratios = [0.01036168132, 0.00327210989]
+
+	[params.oxygen]
+	weight = 1.0
+	remineralized = true
+	ratios = [-1, -1]
+
+[endmembers]
+csv_file = "endmember_df_intermediateanddeep.csv"
+endmember_name_column = "endmember_name"
+
+[endmember_penalties]
+	[endmember_penalties.PSUW]
+		[endmember_penalties.PSUW.lat]
+		type="latlon_default"
+		lowerbound = 10
+	[endmember_penalties.LCDW]
+		[endmember_penalties.LCDW.sigma0]
+		type="density_default"
+		lowerbound = 27.72
+	[endmember_penalties.AABW]
+		[endmember_penalties.AABW.sigma0]
+		type="density_default"
+		lowerbound = 27.72
+
+[export]
+csv_output_name="ompa_soln.csv"
+orig_cols_to_include = ["lat", "lon", "depth", "stnnbr", "geotrc_ID"]
+export_orig_param_vals=false
+export_residuals=true
+export_endmember_fracs=true
+export_oxygen_deficit=true
+export_conversion_ratios=true
+export_endmember_usage_penalties=true
