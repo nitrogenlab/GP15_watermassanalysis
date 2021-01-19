@@ -31,12 +31,15 @@ ratios = [-1, -1]
 
 [endmembers]
 csv_file = "endmember_df_intermediateanddeep.csv"
-endmember_name_column = "endmember_name"
+endmember_name_column = "watermass_name"
 
 
 [endmember_penalties.PSUW.lat]
 type="latlon_default"
 lowerbound = 10
+[endmember_penalties.PSUW.sigma0]
+type="latlon_default"
+upperbound = 27.72
 
 [endmember_penalties.LCDW.sigma0]
 type="density_default"
@@ -49,7 +52,7 @@ lowerbound = 27.72
 [export]
 csv_output_name="ompa_soln.csv"
 orig_cols_to_include = ["lat", "lon", "depth", "stnnbr", "geotrc_ID"]
-export_orig_param_vals=false
+export_orig_param_vals=true
 export_residuals=true
 export_endmember_fracs=true
 export_oxygen_deficit=true
