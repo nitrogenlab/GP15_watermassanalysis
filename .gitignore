@@ -3,6 +3,7 @@ ompa_soln.csv
 **/*.swp
 names_added_GP15OMPA_33RR20180918_only_gs_rosette_clean1_hy1.csv
 pyompa/
+33RR20180918*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
