@@ -1,5 +1,6 @@
 **/*.DS_Store
 ompa_soln.csv
+*Oct2020_siderealPV_NO.csv
 **/*.swp
 names_added_GP15OMPA_33RR20180918_only_gs_rosette_clean1_hy1.csv
 pyompa/
