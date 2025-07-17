@@ -6,6 +6,8 @@ Related code is also in the repositories `nitrogenlab/pyompa` and `nitrogenlab/g
 
 I (Avanti Shrikumar) have done my best to document key notebooks here. I have used permalinks (i.e. links to a specific git commit) so that the links should still work even if the organization of the repository changes later.
 
+The [pyompa_dev2](https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/6d75edb/pyompa_dev2.ipynb) notebook is a bulky notebook that compiles key results for the thermocline, intermediate and deep waters. You may notice that it has sections for "uncertainty analysis", which didn't make it into the final GP15 manuscript as it explored the spread of end-member fractions present across a space of solutions with slightly worse residuals compared to the optimal solution; however, for the interested reader, the math behind that uncertainty analysis is described in the [PYOMPA preprint](https://essopenarchive.org/doi/full/10.1002/essoar.10507053.4) (sections 3, 3.1 and 3.2).
+
 ## Archetype analysis for defining end member subtypes for intermediate and deep waters
 
 "Subtypes" are used in situations where the properties of a particular water mass vary over a wide enough range that it's worth breaking the water mass down into different subtypes rather than trying to come up with a single definition of the water mass properties. The following notebook was used to define the water mass subtypes: [https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/5ee40f0/GP15_Defining_Watermass_Subtypes.ipynb](https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/5ee40f0/GP15_Defining_Watermass_Subtypes.ipynb)
@@ -14,7 +16,7 @@ That notebook pulls in GLODAP data (currently just for the pacific and arctic oc
 
 The end-member definitions are written to the file `GP15_intermediateanddeep_endmemberswithsubtypes.csv`. As a sanity check, the lat/lon/depth/density observations that were used in the defining of each water type are scatterplotted at the end.
 
-You'll notice that `filter_conditions` also allows you to specify `num_archetypes` for each endmember. `num_archetypes` sets the number of subtypes that will be created for each endmember. The properties for the subtypes are chosen via a process called archetype analysis. Basically, it tries to pick an "archetypal" set of property values for the endmember that is representative of the observed spread of property values.
+You'll notice that `filter_conditions` also allows you to specify `num_archetypes` for each endmember. `num_archetypes` sets the number of subtypes that will be created for each endmember. The properties for the subtypes are chosen via a process called archetype analysis (described in section 5 of [https://essopenarchive.org/doi/full/10.1002/essoar.10507053.4](https://essopenarchive.org/doi/full/10.1002/essoar.10507053.4)). Basically, it tries to pick an "archetypal" set of property values for the endmember that is representative of the observed spread of property values.
 
 ## Performing the analysis for the thermocline
 
@@ -36,7 +38,7 @@ The station-specific cutoffs for where the thermocline starts/ends are stored in
 
 ## Combined OMPA and OCIM analysis
 
-For the intermediate and deep waters, we followed up the initial (py)OMPA solutions with further using the water mass fractions from an Ocean Circulation Inverse Model (OCIM) to select one unique solution (as there were often multiple equivalent solutions produced by the OMPA due to the relatively large number of end-members considered). A notebook that performs that combined analysis can be found here: [https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/790c94e/ocimandompa/GP15OCIMandOMPA.ipynb](https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/790c94e/ocimandompa/GP15OCIMandOMPA.ipynb)
+For the intermediate and deep waters, we followed up the initial (py)OMPA solutions with further using the water mass fractions from an Ocean Circulation Inverse Model (OCIM) to select one unique solution (as there were often multiple equivalent solutions produced by the OMPA due to the relatively large number of end-members considered). A notebook that performs and explains each step in this procedure can be found here: [https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/790c94e/ocimandompa/GP15OCIMandOMPA.ipynb](https://colab.research.google.com/github/nitrogenlab/GP15_watermassanalysis/blob/790c94e/ocimandompa/GP15OCIMandOMPA.ipynb)
 
 Note that the residuals produced by solving for steady-state end-member fractions using the OCIM fluxes alone are quite large because the OCIM fluxes were optimized to produce low residuals when using end members defined in surface gridboxes as the sources, whereas we are using end members defined in intermediate and deep waters as the sources. That is why we performed a combinde OMPA and OCIM analysis.
 
